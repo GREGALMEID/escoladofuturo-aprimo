@@ -145,7 +145,7 @@ const Upsell4: React.FC = () => {
                 </button>
 
                 <p className="text-sm text-gray-500">
-                  Caso o valor tenha sido debitado, ele será reembolsado automaticamente.
+                 <span>(O Valor pago da inscrição anterior será reembolsado)</span>
                 </p>
               </div>
             </div>
