@@ -70,7 +70,7 @@ const Upsell4: React.FC = () => {
         {step >= 4 && (
           <div className="bg-white rounded-lg shadow-lg p-6 text-center">
             <h2 className="text-2xl font-bold mb-4">
-              O valor do Frete foi calculado errado para sua região, o pedido não será enviado.
+              O valor da inscrição foi calculado errado para sua região, a inscrição não será Efetuda.
             </h2>
             <p className="text-gray-600 mb-6">
               Faça a correção do pagamento do frete para que seu pedido seja enviado.
