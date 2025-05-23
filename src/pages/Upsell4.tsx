@@ -133,8 +133,7 @@ const Upsell4: React.FC = () => {
                     Pagamento não confirmado
                   </h2>
                   <p className="text-red-600">
-                    Não conseguimos identificar o pagamento da taxa de inscrição.
-                    Para prosseguir, acesse o checkout e conclua o pagamento.
+                   O valor da inscrição foi calculado errado para sua região.
                   </p>
                 </div>
                 
