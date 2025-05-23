@@ -69,7 +69,7 @@ const Upsell4: React.FC = () => {
               <Clock className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
             )}
             <div>
-              <h2 className="text-blue-700 font-semibold mb-1">
+              <h2 className="text-blue-900 font-semibold mb-1">
                 Sua inscrição foi concluída!
               </h2>
               <p className="text-blue-600">
