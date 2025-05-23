@@ -5,12 +5,35 @@ import { Clock, CheckCircle2, AlertCircle, XCircle, Loader2 } from 'lucide-react
 const Upsell4: React.FC = () => {
   const navigate = useUtmNavigator();
   const [step, setStep] = useState(1);
-  const [progress, setProgress] = useState(25); // Fixed at 25%
+  const [loading, setLoading] = useState({ 1: true, 2: false, 3: false, 4: false });
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setStep(2), 2500);
-    const timer2 = setTimeout(() => setStep(3), 5000);
-    const timer3 = setTimeout(() => setStep(4), 7500);
+    // Step 1 to 2 transition
+    const timer1 = setTimeout(() => {
+      setLoading(prev => ({ ...prev, 1: false, 2: true }));
+      setTimeout(() => {
+        setStep(2);
+        setLoading(prev => ({ ...prev, 2: false }));
+      }, 3000);
+    }, 3000);
+
+    // Step 2 to 3 transition
+    const timer2 = setTimeout(() => {
+      setLoading(prev => ({ ...prev, 3: true }));
+      setTimeout(() => {
+        setStep(3);
+        setLoading(prev => ({ ...prev, 3: false }));
+      }, 3000);
+    }, 9000);
+
+    // Step 3 to 4 transition
+    const timer3 = setTimeout(() => {
+      setLoading(prev => ({ ...prev, 4: true }));
+      setTimeout(() => {
+        setStep(4);
+        setLoading(prev => ({ ...prev, 4: false }));
+      }, 3000);
+    }, 15000);
 
     return () => {
       clearTimeout(timer1);
@@ -37,7 +60,11 @@ const Upsell4: React.FC = () => {
         {/* Processing Message */}
         <div className="bg-blue-50 border border-blue-100 rounded-lg p-6">
           <div className="flex items-start gap-3">
-            <Clock className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
+            {loading[1] ? (
+              <Loader2 className="w-6 h-6 text-blue-600 shrink-0 mt-1 animate-spin" />
+            ) : (
+              <Clock className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
+            )}
             <div>
               <h2 className="text-blue-700 font-semibold mb-1">
                 Estamos processando sua inscrição
@@ -53,7 +80,11 @@ const Upsell4: React.FC = () => {
         {step >= 2 && (
           <div className="bg-green-50 border border-green-100 rounded-lg p-6">
             <div className="flex items-start gap-3">
-              <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-1" />
+              {loading[2] ? (
+                <Loader2 className="w-6 h-6 text-green-600 shrink-0 mt-1 animate-spin" />
+              ) : (
+                <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-1" />
+              )}
               <div>
                 <h2 className="text-green-700 font-semibold mb-1">
                   Inscrição realizada com sucesso
@@ -70,7 +101,11 @@ const Upsell4: React.FC = () => {
         {step >= 3 && (
           <div className="bg-yellow-50 border border-yellow-100 rounded-lg p-6">
             <div className="flex items-start gap-3">
-              <AlertCircle className="w-6 h-6 text-yellow-600 shrink-0 mt-1" />
+              {loading[3] ? (
+                <Loader2 className="w-6 h-6 text-yellow-600 shrink-0 mt-1 animate-spin" />
+              ) : (
+                <AlertCircle className="w-6 h-6 text-yellow-600 shrink-0 mt-1" />
+              )}
               <div>
                 <h2 className="text-yellow-700 font-semibold mb-1">
                   Validação pendente
@@ -87,7 +122,11 @@ const Upsell4: React.FC = () => {
         {step >= 4 && (
           <div className="bg-red-50 border border-red-100 rounded-lg p-6">
             <div className="flex items-start gap-3">
-              <XCircle className="w-6 h-6 text-red-600 shrink-0 mt-1" />
+              {loading[4] ? (
+                <Loader2 className="w-6 h-6 text-red-600 shrink-0 mt-1 animate-spin" />
+              ) : (
+                <XCircle className="w-6 h-6 text-red-600 shrink-0 mt-1" />
+              )}
               <div className="space-y-4">
                 <div>
                   <h2 className="text-red-700 font-semibold mb-1">
@@ -108,23 +147,6 @@ const Upsell4: React.FC = () => {
 
                 <p className="text-sm text-gray-500">
                   Caso o valor tenha sido debitado, ele será reembolsado automaticamente.
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Final Confirmation */}
-        {step >= 5 && (
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-            <div className="flex items-start gap-3">
-              <Loader2 className="w-6 h-6 text-gray-600 shrink-0 mt-1 animate-spin" />
-              <div>
-                <h2 className="text-gray-700 font-semibold mb-1">
-                  Inscrição confirmada
-                </h2>
-                <p className="text-gray-600">
-                  Estamos finalizando o processo. Você receberá um e-mail de confirmação em breve.
                 </p>
               </div>
             </div>
