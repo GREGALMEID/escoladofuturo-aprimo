@@ -117,7 +117,7 @@ const Upsell4: React.FC = () => {
                   Validação do CPF para Aprovação
                 </h2>
                 <p className="text-yellow-600">
-                  Estamos conferindo seus dados pessoais. Esse processo pode levar alguns minutos.
+                  Estamos conferindo seus dados pessoais. Esse processo pode levar alguns segundos.
                 </p>
               </div>
             </div>
