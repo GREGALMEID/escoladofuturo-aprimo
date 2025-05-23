@@ -7,6 +7,12 @@ const Upsell4: React.FC = () => {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState({ 1: true, 2: false, 3: false, 4: false });
 
+  // Calculate progress based on current step (max 80%)
+  const calculateProgress = () => {
+    const progressPerStep = 20; // 80% total divided by 4 steps
+    return Math.min(80, step * progressPerStep);
+  };
+
   useEffect(() => {
     // Step 1 to 2 transition
     const timer1 = setTimeout(() => {
@@ -53,7 +59,7 @@ const Upsell4: React.FC = () => {
         <div className="h-2 bg-blue-100 rounded-full mb-8">
           <div 
             className="h-2 bg-[#1351B4] rounded-full transition-all duration-300"
-            style={{ width: '25%' }}
+            style={{ width: `${calculateProgress()}%` }}
           />
         </div>
 
