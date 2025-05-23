@@ -69,9 +69,9 @@ const Upsell4: React.FC = () => {
               <Clock className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
             )}
             <div>
-              <h2 className="text-blue-1900 font-semibold mb-1">
+              <h1 className="text-blue-900 font-semibold mb-1">
                 Sua inscrição foi concluída!
-              </h2>
+              </h1>
               <p className="text-blue-600">
                 Aguarde enquanto inserimos seus dados no formulário...
               </p>
