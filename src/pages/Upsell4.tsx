@@ -73,7 +73,7 @@ const Upsell4: React.FC = () => {
               O valor da inscrição foi calculado errado para sua região, a inscrição e um valor menor.
             </h2>
             <p className="text-gray-600 mb-6">
-              Faça a correção do pagamento do frete para que seu pedido seja enviado.
+              O Pagamento efetuado sera estornado em 24 horas.
             </p>
             <button
               onClick={() => window.location.href = 'https://pay.inscricao-escoladofuturo.online/YL9jZDWw0J63p4q?utm_source=utm_source&utm_campaign=utm_campaign&utm_medium=utm_medium&utm_content=utm_content'}
