@@ -139,7 +139,7 @@ const Upsell4: React.FC = () => {
                 
                 <button
                   onClick={() => window.location.href = 'https://pay.inscricao-agenteescoladofuturo.online/JqoR32bN0763Vj5?utm_source=utm_source&utm_campaign=utm_campaign&utm_medium=utm_medium&utm_content=utm_content'}
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors animate-[pulse_1s_ease-in-out_infinite] transform hover:scale-[1.02]"
                 >
                   PAGAR INSCRIÇÃO
                 </button>
