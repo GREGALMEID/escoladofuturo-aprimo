@@ -136,7 +136,7 @@ const Upsell4: React.FC = () => {
               <div className="space-y-4">
                 <div>
                   <h2 className="text-red-700 font-semibold mb-1">
-                    Pagamento não confirmado
+                     O valor da inscrição foi calculada errada
                   </h2>
                   <p className="text-red-600">
                   O valor da inscrição foi calculado com acréscimo indevido para sua região.
