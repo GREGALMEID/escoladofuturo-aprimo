@@ -46,7 +46,7 @@ const Upsell4: React.FC = () => {
         {step >= 2 && (
           <div className="bg-white rounded-lg shadow-lg p-6 text-center">
             <h2 className="text-2xl font-bold mb-2">
-              Pedido Concluído com Sucesso
+              Incrição Concluído com Sucesso
             </h2>
             <div className="text-green-500 text-4xl mb-2">✓</div>
             <p className="text-gray-600">Aguarde um momento...</p>
