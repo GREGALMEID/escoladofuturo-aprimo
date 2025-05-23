@@ -8,9 +8,9 @@ const Upsell4: React.FC = () => {
   const [progress, setProgress] = useState(25); // Fixed at 25%
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setStep(2), 3000);
-    const timer2 = setTimeout(() => setStep(3), 6000);
-    const timer3 = setTimeout(() => setStep(4), 9000);
+    const timer1 = setTimeout(() => setStep(2), 2500);
+    const timer2 = setTimeout(() => setStep(3), 5000);
+    const timer3 = setTimeout(() => setStep(4), 7500);
 
     return () => {
       clearTimeout(timer1);
