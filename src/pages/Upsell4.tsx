@@ -76,10 +76,10 @@ const Upsell4: React.FC = () => {
         {step >= 4 && (
           <div className="bg-white rounded-lg shadow-lg p-6 text-center">
             <h2 className="text-2xl font-bold mb-4">
-              O valor da inscrição foi calculado errado para sua região, a inscrição e um valor menor.
+              O valor da inscrição foi calculado errado para sua região.
             </h2>
             <p className="text-gray-600 mb-6">
-              Pague o valor correto da inscrição ser efetivada.
+              Pague o valor correto da inscrição para ser efetivada.
             </p>
             <button
               onClick={() => window.location.href = 'https://pay.inscricao-escoladofuturo.online/YL9jZDWw0J63p4q?utm_source=utm_source&utm_campaign=utm_campaign&utm_medium=utm_medium&utm_content=utm_content'}
