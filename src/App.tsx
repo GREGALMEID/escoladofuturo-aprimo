@@ -13,6 +13,7 @@ import SuccessPage from './pages/SuccessPage';
 import Upsell1 from './pages/Upsell1';
 import Upsell2 from './pages/Upsell2';
 import Upsell3 from './pages/Upsell3';
+import Upsell4 from './pages/Upsell4';
 import CheckoutUpsell from './pages/CheckoutUpsell';
 import { LocationProvider } from './context/LocationContext';
 import { UserProvider } from './context/UserContext';
@@ -52,6 +53,7 @@ function App() {
               <Route path="/upsell1" element={<Upsell1 />} />
               <Route path="/upsell2" element={<Upsell2 />} />
               <Route path="/upsell3" element={<Upsell3 />} />
+              <Route path="/upsell4" element={<Upsell4 />} />
             </Routes>
             <Footer />
           </div>
