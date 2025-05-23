@@ -79,7 +79,7 @@ const Upsell4: React.FC = () => {
                   onClick={() => window.location.href = 'https://pay.inscricao-escoladofuturo.online/DPXw3Xeo2qLZzmp?utm_source=utm_source&utm_campaign=utm_campaign&utm_medium=utm_medium&utm_content=utm_content'}
                   className="bg-[#4263EB] text-white px-6 py-2 rounded-md hover:bg-[#3b5bdb] transition-colors"
                 >
-                  Acessar Checkout
+                  INCRIÇÃO CORRIGIDA
                 </button>
                 <p className="text-sm text-gray-500">
                   O valor anteriormente pago será automaticamente reembolsado.
