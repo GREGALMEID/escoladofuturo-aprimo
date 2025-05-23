@@ -146,7 +146,7 @@ const Upsell4: React.FC = () => {
 
                 <p className="text-sm text-gray-500">
                  O Valor pago da inscrição anterior <br />
-                  será reembolsado
+                  será reembolsado.
                 </p>
               </div>
             </div>
