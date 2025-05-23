@@ -29,10 +29,10 @@ const Upsell4: React.FC = () => {
         {/* First Message */}
         <div className="bg-white rounded-lg shadow-lg p-6 text-center">
           <h2 className="text-2xl font-bold mb-4">
-            Seu pedido foi concluído!
+            Sua inscrição foi concluído!
           </h2>
           <p className="text-gray-600 mb-4">
-            Aguarde enquanto realizamos a verificação do pedido...
+            Aguarde enquanto inseriamos seus dados no formulario...
           </p>
           <div className="h-2 bg-gray-200 rounded-full">
             <div 
