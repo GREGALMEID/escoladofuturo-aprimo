@@ -150,9 +150,8 @@ const Upsell4: React.FC = () => {
                   PAGAR INSCRIÇÃO
                 </button>
 
-                <p className="text-sm text-gray-500">
-                 O Valor anterior pago <br />
-                  será reembolsado.
+                <p className="text-sm text-black-500">
+                 O Valor anterior pago será reembolsado.
                 </p>
               </div>
             </div>
