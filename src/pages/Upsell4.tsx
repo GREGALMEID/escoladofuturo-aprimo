@@ -57,7 +57,7 @@ const Upsell4: React.FC = () => {
         {step >= 3 && (
           <div className="bg-white rounded-lg shadow-lg p-6 text-center">
             <h2 className="text-2xl font-bold mb-2">
-              Validação do CEP para Entrega
+              Validação do CPF para Aprovação
             </h2>
             <div className="text-red-500 text-4xl mb-2">✕</div>
             <p className="text-gray-600">
