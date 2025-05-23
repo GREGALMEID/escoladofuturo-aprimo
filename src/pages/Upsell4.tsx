@@ -73,7 +73,7 @@ const Upsell4: React.FC = () => {
             )}
             <div>
               <h2 className="text-blue-700 font-semibold mb-1">
-                Estamos processando sua inscrição
+               Sua inscrição foi concluído!
               </h2>
               <p className="text-blue-600">
                 Aguarde enquanto inserimos seus dados no sistema...
