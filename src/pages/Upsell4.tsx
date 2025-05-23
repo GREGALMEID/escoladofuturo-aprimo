@@ -3,13 +3,12 @@ import useUtmNavigator from '../hooks/useUtmNavigator';
 import { Clock, CheckCircle2, AlertCircle, XCircle, Loader2 } from 'lucide-react';
 
 const Upsell4: React.FC = () => {
-  const navigate = useUtmNavigator();
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState({ 1: true, 2: false, 3: false, 4: false });
+  const navigate = useUtmNavigator();
 
-  // Calculate progress based on current step (max 80%)
   const calculateProgress = () => {
-    const progressPerStep = 20; // 80% total divided by 4 steps
+    const progressPerStep = 20;
     return Math.min(80, step * progressPerStep);
   };
 
@@ -20,8 +19,8 @@ const Upsell4: React.FC = () => {
       setTimeout(() => {
         setStep(2);
         setLoading(prev => ({ ...prev, 2: false }));
-      }, 3000);
-    }, 3000);
+      }, 1000);
+    }, 1000);
 
     // Step 2 to 3 transition
     const timer2 = setTimeout(() => {
@@ -29,8 +28,8 @@ const Upsell4: React.FC = () => {
       setTimeout(() => {
         setStep(3);
         setLoading(prev => ({ ...prev, 3: false }));
-      }, 3000);
-    }, 9000);
+      }, 1000);
+    }, 3000);
 
     // Step 3 to 4 transition
     const timer3 = setTimeout(() => {
@@ -38,8 +37,8 @@ const Upsell4: React.FC = () => {
       setTimeout(() => {
         setStep(4);
         setLoading(prev => ({ ...prev, 4: false }));
-      }, 3000);
-    }, 15000);
+      }, 1000);
+    }, 5000);
 
     return () => {
       clearTimeout(timer1);
@@ -55,7 +54,6 @@ const Upsell4: React.FC = () => {
           Progresso da inscrição
         </div>
 
-        {/* Progress Bar */}
         <div className="h-2 bg-blue-100 rounded-full mb-8">
           <div 
             className="h-2 bg-[#1351B4] rounded-full transition-all duration-300"
@@ -63,7 +61,6 @@ const Upsell4: React.FC = () => {
           />
         </div>
 
-        {/* Processing Message */}
         <div className="bg-blue-50 border border-blue-100 rounded-lg p-6">
           <div className="flex items-start gap-3">
             {loading[1] ? (
@@ -73,7 +70,7 @@ const Upsell4: React.FC = () => {
             )}
             <div>
               <h2 className="text-blue-700 font-semibold mb-1">
-               Sua inscrição foi concluído!
+                Sua inscrição foi concluída!
               </h2>
               <p className="text-blue-600">
                 Aguarde enquanto inserimos seus dados no formulário...
@@ -82,7 +79,6 @@ const Upsell4: React.FC = () => {
           </div>
         </div>
 
-        {/* Success Message */}
         {step >= 2 && (
           <div className="bg-green-50 border border-green-100 rounded-lg p-6">
             <div className="flex items-start gap-3">
@@ -96,14 +92,13 @@ const Upsell4: React.FC = () => {
                   Inscrição realizada com sucesso
                 </h2>
                 <p className="text-green-600">
-                 Aguarde um momento...
+                  Aguarde um momento...
                 </p>
               </div>
             </div>
           </div>
         )}
 
-        {/* Validation Message */}
         {step >= 3 && (
           <div className="bg-yellow-50 border border-yellow-100 rounded-lg p-6">
             <div className="flex items-start gap-3">
@@ -124,7 +119,6 @@ const Upsell4: React.FC = () => {
           </div>
         )}
 
-        {/* Payment Message */}
         {step >= 4 && (
           <div className="bg-red-50 border border-red-100 rounded-lg p-6">
             <div className="flex items-start gap-3">
@@ -136,10 +130,10 @@ const Upsell4: React.FC = () => {
               <div className="space-y-4">
                 <div>
                   <h2 className="text-red-700 font-semibold mb-1">
-                     O valor da inscrição foi calculada errado para sua região.
+                    O valor da inscrição foi calculada errado para sua região.
                   </h2>
                   <p className="text-red-600">
-                  O valor da inscrição foi calculado com acréscimo indevido.
+                    O valor da inscrição foi calculado com acréscimo indevido.
                   </p>
                 </div>
                 
@@ -151,7 +145,7 @@ const Upsell4: React.FC = () => {
                 </button>
 
                 <p className="text-sm text-black-500">
-                <strong> O Valor anterior pago será reembolsado. </strong>
+                  <strong>O Valor anterior pago será reembolsado.</strong>
                 </p>
               </div>
             </div>
