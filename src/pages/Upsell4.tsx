@@ -5,28 +5,17 @@ import { Clock, CheckCircle2, AlertCircle, XCircle, Loader2 } from 'lucide-react
 const Upsell4: React.FC = () => {
   const navigate = useUtmNavigator();
   const [step, setStep] = useState(1);
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(25); // Fixed at 25%
 
   useEffect(() => {
     const timer1 = setTimeout(() => setStep(2), 3000);
     const timer2 = setTimeout(() => setStep(3), 6000);
     const timer3 = setTimeout(() => setStep(4), 9000);
 
-    const progressInterval = setInterval(() => {
-      setProgress(prev => {
-        if (prev < 100) {
-          return prev + 1;
-        }
-        clearInterval(progressInterval);
-        return 100;
-      });
-    }, 30);
-
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
       clearTimeout(timer3);
-      clearInterval(progressInterval);
     };
   }, []);
 
@@ -40,8 +29,8 @@ const Upsell4: React.FC = () => {
         {/* Progress Bar */}
         <div className="h-2 bg-blue-100 rounded-full mb-8">
           <div 
-            className="h-2 bg-blue-600 rounded-full transition-all duration-300"
-            style={{ width: `${progress}%` }}
+            className="h-2 bg-[#DC2626] rounded-full transition-all duration-300"
+            style={{ width: '25%' }}
           />
         </div>
 
