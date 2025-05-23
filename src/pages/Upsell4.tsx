@@ -76,7 +76,7 @@ const Upsell4: React.FC = () => {
                Sua inscrição foi concluído!
               </h2>
               <p className="text-blue-600">
-                Aguarde enquanto inserimos seus dados no sistema...
+                Aguarde enquanto inserimos seus dados no formulário...
               </p>
             </div>
           </div>
@@ -96,7 +96,7 @@ const Upsell4: React.FC = () => {
                   Inscrição realizada com sucesso
                 </h2>
                 <p className="text-green-600">
-                  Seu formulário foi enviado e está sendo processado. Aguarde a validação dos dados informados.
+                 Aguarde um momento...
                 </p>
               </div>
             </div>
