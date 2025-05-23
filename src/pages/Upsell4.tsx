@@ -133,7 +133,7 @@ const Upsell4: React.FC = () => {
                     O valor da inscrição foi calculada errado para sua região.
                   </h2>
                   <p className="text-red-600">
-                    O valor da inscrição foi calculado com acréscimos indevido.
+                   Pague o valor correto da inscrição para ser efetivada.
                   </p>
                 </div>
                 
