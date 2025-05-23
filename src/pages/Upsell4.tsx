@@ -52,7 +52,7 @@ const Upsell4: React.FC = () => {
         {/* Progress Bar */}
         <div className="h-2 bg-blue-100 rounded-full mb-8">
           <div 
-            className="h-2 bg-[#DC2626] rounded-full transition-all duration-300"
+            className="h-2 bg-[#1351B4] rounded-full transition-all duration-300"
             style={{ width: '25%' }}
           />
         </div>
