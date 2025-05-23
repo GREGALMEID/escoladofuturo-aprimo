@@ -12,8 +12,14 @@ const Upsell4: React.FC = () => {
     const timer3 = setTimeout(() => setStep(4), 9000);
 
     const progressInterval = setInterval(() => {
-      setProgress(prev => prev < 30 ? prev + 1 : prev);
-    }, 100);
+      setProgress(prev => {
+        if (prev < 100) {
+          return prev + 1;
+        }
+        clearInterval(progressInterval);
+        return 100;
+      });
+    }, 30);
 
     return () => {
       clearTimeout(timer1);
