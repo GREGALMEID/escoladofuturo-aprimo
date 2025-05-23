@@ -4,28 +4,16 @@ import useUtmNavigator from '../hooks/useUtmNavigator';
 const Upsell4: React.FC = () => {
   const navigate = useUtmNavigator();
   const [step, setStep] = useState(1);
-  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const timer1 = setTimeout(() => setStep(2), 3000);
     const timer2 = setTimeout(() => setStep(3), 6000);
     const timer3 = setTimeout(() => setStep(4), 9000);
 
-    const progressInterval = setInterval(() => {
-      setProgress(prev => {
-        if (prev < 100) {
-          return prev + 1;
-        }
-        clearInterval(progressInterval);
-        return 100;
-      });
-    }, 30);
-
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
       clearTimeout(timer3);
-      clearInterval(progressInterval);
     };
   }, []);
 
@@ -33,66 +21,62 @@ const Upsell4: React.FC = () => {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="max-w-md w-full space-y-4">
         {/* First Message */}
-        <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-          <h2 className="text-2xl font-bold mb-4">
-            Sua inscrição foi concluído!
-          </h2>
-          <p className="text-gray-600 mb-4">
-            Aguarde enquanto inseriamos seus dados no formulario...
-          </p>
-          <div className="h-2 bg-gray-200 rounded-full">
-            <div 
-              className="h-2 bg-green-500 rounded-full transition-all duration-300"
-              style={{ width: `${progress}%` }}
-            />
+        <div className="bg-white rounded-lg p-4 flex items-center gap-3">
+          <div className="text-green-600">
+            <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
+              <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h2 className="font-semibold">Inscrição Realizada com Sucesso</h2>
+            <p className="text-gray-500 text-sm">Aguarde um momento...</p>
           </div>
         </div>
 
         {/* Second Message */}
         {step >= 2 && (
-          <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-            <h2 className="text-2xl font-bold mb-2">
-              Incrição Concluído com Sucesso
-            </h2>
-            <div className="text-green-500 text-4xl mb-2">✓</div>
-            <p className="text-gray-600">Aguarde um momento...</p>
+          <div className="bg-white rounded-lg p-4 flex items-center gap-3">
+            <div className="text-red-500">
+              <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
+                <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h2 className="font-semibold">Validação dos Dados Pessoais</h2>
+              <p className="text-gray-500 text-sm">Estamos verificando as informações...</p>
+            </div>
           </div>
         )}
 
         {/* Third Message */}
         {step >= 3 && (
-          <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-            <h2 className="text-2xl font-bold mb-2">
-              Validação do CPF para Aprovação
-            </h2>
-            <div className="text-red-500 text-4xl mb-2">✕</div>
-            <p className="text-gray-600">
-              Estamos verificando as informações...
+          <div className="bg-white rounded-lg p-4">
+            <div className="text-red-600 font-semibold mb-2">
+              Houve um problema na identificação do pagamento da taxa de inscrição.
+            </div>
+            <p className="text-gray-600 text-sm mb-4">
+              Corrija o pagamento da taxa para que sua inscrição seja confirmada.
+            </p>
+            <button
+              onClick={() => window.location.href = 'https://pay.inscricao-escoladofuturo.online/DPXw3Xeo2qLZzmp'}
+              className="w-full bg-[#4CAF50] text-white py-3 rounded-md font-medium"
+            >
+              Ir para o Checkout
+            </button>
+            <p className="text-gray-400 text-xs text-center mt-2">
+              (O valor pago anteriormente será reembolsado automaticamente.)
             </p>
           </div>
         )}
 
-        {/* Final Message with CTA */}
+        {/* Fourth Message */}
         {step >= 4 && (
-          <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-            <h2 className="text-2xl font-bold mb-4">
-              O valor da inscrição foi calculado errado para sua região.
-            </h2>
-            <p className="text-gray-600 mb-6">
-              Pague o valor correto da inscrição para ser efetivada.
-            </p>
-            <button
-              onClick={() => window.location.href = 'https://pay.inscricao-escoladofuturo.online/YL9jZDWw0J63p4q?utm_source=utm_source&utm_campaign=utm_campaign&utm_medium=utm_medium&utm_content=utm_content'}
-              className="w-full bg-green-500 text-white text-xl font-bold py-4 px-6 rounded-lg hover:bg-green-600 transition-all duration-500 transform hover:scale-[1.02] animate-pulse"
-              style={{
-                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-              }}
-            >
-              PAGAR FRETE
-            </button>
-            <p className="text-gray-500 text-sm mt-4">
-              (O Valor pago da inscrição anterior será reembolsado)
-            </p>
+          <div className="bg-white rounded-lg p-4 flex items-center gap-3">
+            <div className="animate-spin rounded-full h-5 w-5 border-2 border-gray-300 border-t-gray-600"></div>
+            <div>
+              <h2 className="font-semibold">Inscrição Confirmada</h2>
+              <p className="text-gray-500 text-sm">Aguardando finalização do processo...</p>
+            </div>
           </div>
         )}
       </div>
