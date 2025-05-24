@@ -81,7 +81,7 @@ const Upsell1: React.FC = () => {
               Quero trabalhar perto da minha casa
             </button>
             
-            <p className="text-sm text-gray-500 text-center">
+            <p className="text-sm text-gray-500 text-center mb-4">
               *Ao ativá-lo, você terá prioridade para escolas próximas à sua residência.
             </p>
              <button
