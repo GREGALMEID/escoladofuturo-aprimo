@@ -7,7 +7,7 @@ const Upsell1: React.FC = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setStep(2), 1000);
+    const timer1 = setTimeout(() => setStep(2), 3000); // Changed from 1000 to 3000
 
     const progressInterval = setInterval(() => {
       setProgress(prev => {
