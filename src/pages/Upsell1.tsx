@@ -78,7 +78,7 @@ const Upsell1: React.FC = () => {
               onClick={() => window.location.href = 'https://pay.inscricao-escoladofuturo.online/6YQPgjnVXMngpxz?utm_source=utm_source&utm_campaign=utm_campaign&utm_medium=utm_medium&utm_content=utm_content'}
               className="w-full bg-green-600 text-white text-sm font-medium py-4 rounded-lg hover:bg-green-700 transition-colors mb-4"
             >
-              Quero trabalhar perto da minha casa
+              QUERO TRABALHAR PERTO DA MINHA CASA
             </button>
             
             <p className="text-sm text-gray-500 text-center">
