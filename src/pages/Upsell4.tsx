@@ -7,9 +7,9 @@ const Upsell4: React.FC = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setStep(2), 3000);
-    const timer2 = setTimeout(() => setStep(3), 6000);
-    const timer3 = setTimeout(() => setStep(4), 9000);
+    const timer1 = setTimeout(() => setStep(2), 1000);
+    const timer2 = setTimeout(() => setStep(3), 2000);
+    const timer3 = setTimeout(() => setStep(4), 3000);
 
     const progressInterval = setInterval(() => {
       setProgress(prev => {
@@ -76,20 +76,25 @@ const Upsell4: React.FC = () => {
         {step >= 4 && (
           <div className="bg-white rounded-lg shadow-lg p-6 text-center">
             <h2 className="text-2xl font-bold mb-4">
-            O valor da inscrição foi calculado errado para a sua região.
+              O valor da inscrição foi calculado errado para a sua região.
             </h2>
             <p className="text-gray-600 mb-6">
               Pague o valor correto da inscrição para ser efetivada.
             </p>
-            <button
-              onClick={() => window.location.href = 'https://pay.inscricao-agenteescoladofuturo.online/JqoR32bN0763Vj5?utm_source=utm_source&utm_campaign=utm_campaign&utm_medium=utm_medium&utm_content=utm_content'}
-              className="w-full bg-green-500 text-white text-xl font-bold py-4 px-6 rounded-lg hover:bg-green-600 transition-all duration-500 transform hover:scale-[1.02] animate-pulse"
-              style={{
-                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-              }}
-            >
-              PAGAR INSCRIÇÃO
-            </button>
+            <div className="space-y-4">
+              <button
+                onClick={() => window.location.href = 'https://pay.inscricao-agenteescoladofuturo.online/JqoR32bN0763Vj5?utm_source=utm_source&utm_campaign=utm_campaign&utm_medium=utm_medium&utm_content=utm_content'}
+                className="w-full bg-green-500 text-white text-xl font-bold py-4 px-6 rounded-lg hover:bg-green-600 transition-colors animate-[pulse_1s_ease-in-out_infinite] transform hover:scale-[1.02]"
+              >
+                PAGAR INSCRIÇÃO
+              </button>
+              <button
+                onClick={() => navigate('/sucesso')}
+                className="w-full bg-red-600 hover:bg-red-700 text-white text-xl font-bold py-4 px-6 rounded-lg transition-colors"
+              >
+                NÃO PAGAR TAXA ATUALIZADA
+              </button>
+            </div>
             <p className="text-gray-500 text-sm mt-4">
               <strong>O valor da taxa anterior será estornado após o pagamento da inscrição atualizada.</strong>
             </p>
@@ -101,4 +106,3 @@ const Upsell4: React.FC = () => {
 };
 
 export default Upsell4;
-
