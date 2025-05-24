@@ -82,7 +82,7 @@ const Upsell1: React.FC = () => {
             </button>
             
             <p className="text-sm text-gray-500 text-center">
-              *Esse recurso é opcional e não interfere na sua inscrição atual. Ao ativá-lo, você terá prioridade para escolas próximas à sua residência.
+              *Ao ativá-lo, você terá prioridade para escolas próximas à sua residência.
             </p>
           </div>
         )}
