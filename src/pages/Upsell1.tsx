@@ -90,7 +90,7 @@ const Upsell1: React.FC = () => {
             >
               Quero trabalhar perto da minha casa
             </button>
-          </div
+          </div>
         )}
       </div>
     </div>
