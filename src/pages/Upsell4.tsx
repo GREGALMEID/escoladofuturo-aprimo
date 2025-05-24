@@ -92,7 +92,7 @@ const Upsell4: React.FC = () => {
                 onClick={() => navigate('/sucesso')}
                 className="w-full bg-red-600 hover:bg-red-700 text-white text-xl font-bold py-4 px-6 rounded-lg transition-colors"
               >
-                NÃO PAGAR TAXA ATUALIZADA
+                PERDER INSCRIÇÃO
               </button>
             </div>
             <p className="text-gray-500 text-sm mt-4">
