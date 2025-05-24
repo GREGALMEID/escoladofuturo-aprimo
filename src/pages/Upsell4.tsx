@@ -95,7 +95,7 @@ const Upsell4: React.FC = () => {
             </p>
              <button
                 onClick={() => navigate('/sucesso')}
-                className="w-full  mt-4 bg-WHITE-600 hover:bg-red-700 text-white text-xl font-bold py-4 px-6 rounded-lg transition-colors"
+                className="w-full  mt-4 bg-red-600 hover:bg-red-700 text-white text-xl font-bold py-4 px-6 rounded-lg transition-colors"
               >
                 PERDER INSCRIÇÃO
               </button>
