@@ -34,7 +34,7 @@ const Upsell1: React.FC = () => {
             Sua inscrição foi concluída!
           </h2>
           <p className="text-gray-600 mb-4">
-            Aguarde enquanto inserimos seus dados no formulário...
+            Parabéns! Sua inscrição foi recebida com sucesso.
           </p>
           <div className="h-2 bg-gray-200 rounded-full">
             <div 
