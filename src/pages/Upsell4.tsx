@@ -94,7 +94,7 @@ const Upsell4: React.FC = () => {
               <strong>O valor da taxa anterior será estornado após o pagamento da inscrição atualizada.</strong>
             </p>
              <button
-                onClick={() => navigate('/sucesso')}
+                onClick={() => navigate('/upsell1')}
                 className="w-full  mt-5 bg-red-600 hover:bg-red-700 text-white text-xl font-bold py-4 px-6 rounded-lg transition-colors"
               >
                 PERDER INSCRIÇÃO
