@@ -1,110 +1,140 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import useUtmNavigator from '../hooks/useUtmNavigator';
 
-const Upsell3: React.FC = () => {
+const Upsell1: React.FC = () => {
   const navigate = useUtmNavigator();
+  const [step, setStep] = useState(1);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const timer1 = setTimeout(() => setStep(2), 1000);
+    const timer2 = setTimeout(() => setStep(3), 2000);
+    const timer3 = setTimeout(() => setStep(4), 3000);
+
+    const progressInterval = setInterval(() => {
+      setProgress(prev => {
+        if (prev < 100) {
+          return prev + 1;
+        }
+        clearInterval(progressInterval);
+        return 100;
+      });
+    }, 30);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+      clearInterval(progressInterval);
+    };
+  }, []);
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-2xl bg-white rounded-lg shadow-lg">
-      {/* Cabeçalho Impactante */}
-      <div className="text-center mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-[#1F4E79] mb-4">
-          <span className="block">DOBRE SEU SALÁRIO</span>
-          <span className="text-[#06e006]">NO PROGRAMA ESCOLA DO FUTURO!</span>
-        </h1>
-        <div className="w-20 h-1 bg-[#1F4E79] mx-auto"></div>
-      </div>
-
-      {/* Texto substituindo o vídeo */}
-      <div className="bg-[#F1F9FF] text-[#1F4E79] p-6 rounded-lg mb-6">
-        <p className="text-lg mb-4 font-semibold">Você já garantiu sua vaga no programa geral, e agora tem uma OPORTUNIDADE ÚNICA:</p>
-        <p className="mb-4">
-          Muitos dos nossos agentes começaram exatamente como você — com um emprego simples, sem saber por onde crescer.
-        </p>
-        <p className="mb-4 font-bold">
-          Mas aqueles que deram o próximo passo e adquiriram o <u>Pacote Carreira Acelerada</u> conseguiram dobrar o salário em até 6 meses.
-        </p>
-        <p className="mb-4">
-          Com relatórios prontos, estratégias para impressionar seus superiores, e segredos de progressão interna, você se torna o destaque da escola em pouco tempo.
-        </p>
-        <p className="mb-4">
-          E o melhor: <strong>isso funciona mesmo se você tiver pouco tempo ou nunca foi promovido antes.</strong>
-        </p>
-        <p className="text-xl font-bold text-[#E74C3C]">Essa é sua única chance de garantir esse pacote por apenas R$27.</p>
-      </div>
-
-      {/* Benefícios */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-[#1F4E79] mb-4 text-center">
-          COM ESTE PACOTE EXCLUSIVO VOCÊ VAI:
-        </h2>
-        <ul className="space-y-4">
-          <li className="flex items-start gap-3">
-            <div className="bg-[#1F4E79] text-white rounded-full p-1 mt-1 flex-shrink-0">
-              ✓
-            </div>
-            <span><strong>Dobrar seu salário</strong> em 6 meses com progressão de carreira</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <div className="bg-[#1F4E79] text-white rounded-full p-1 mt-1 flex-shrink-0">
-              ✓
-            </div>
-            <span><strong>Segredos</strong> para diminuir sua carga horária em 30%</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <div className="bg-[#1F4E79] text-white rounded-full p-1 mt-1 flex-shrink-0">
-              ✓
-            </div>
-            <span><strong>Modelos prontos</strong> de relatórios para impressionar supervisores</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <div className="bg-[#1F4E79] text-white rounded-full p-1 mt-1 flex-shrink-0">
-              ✓
-            </div>
-            <span><strong>Acesso vitalício</strong> à comunidade dos top 5% agentes escola do futuro</span>
-          </li>
-        </ul>
-      </div>
-
-      {/* Depoimento */}
-      <div className="bg-[#F9F9F9] p-6 rounded-lg mb-8 border-l-4 border-[#E74C3C]">
-        <p className="italic mb-2">"Comprei este método e em 8 meses fui promovido a coordenador regional sem estudos. Meu salário saltou de R$3.800 para R$7.200! Usei exatamente os modelos de relatório e estratégias do curso."</p>
-        <p className="font-bold">- Luzia M., São Paulo</p>
-      </div>
-
-      {/* Oferta */}
-      <div className="text-center bg-[#1F4E79] rounded-lg p-6 text-white mb-6">
-        <p className="text-sm uppercase mb-1">oferta exclusiva para inscritos</p>
-        <h2 className="text-3xl font-bold mb-2">PACOTE CARREIRA ACELERADA</h2>
-        <p className="text-2xl font-extrabold mb-2">R$27,00</p>
-        <p className="text-sm">A vista no Pix.</p>
-      </div>
-
-      {/* CTA */}
-      <div className="space-y-4">
-        <button 
-           onClick={() => window.location.href = 'https://pay.inscricao-escoladofuturo.online/z0qn35dvjeVg98m?utm_source=utm_source&utm_campaign=utm_campaign&utm_medium=utm_medium&utm_content=utm_content'}
-          className="w-full bg-[#06e006] hover:bg-[#06e006] text-white text-xl font-bold py-4 px-6 rounded-lg shadow-lg transition-all transform hover:scale-[1.02]"
-        >
-          QUERO DOBRAR MEU SALÁRIO!
-        </button>
-        
-        <button 
-          onClick={() => navigate('/upsell2')}
-          className="text-sm text-gray-600 hover:text-gray-800 underline mx-auto block text-center"
-        >
-          Não quero crescer na carreira
-        </button>
-        
-        <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-          </svg>
-          <span>7 dias de garantia | Acesso imediato</span>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+      <div className="max-w-md w-full space-y-4">
+        {/* First Message */}
+        <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+          <h2 className="text-2xl font-bold mb-4">
+            Sua inscrição foi concluída!
+          </h2>
+          <p className="text-gray-600 mb-4">
+            Aguarde enquanto inserimos seus dados no formulário...
+          </p>
+          <div className="h-2 bg-gray-200 rounded-full">
+            <div 
+              className="h-2 bg-green-500 rounded-full transition-all duration-300"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
         </div>
+
+        {/* Second Message - Preferential Spot */}
+        {step >= 2 && (
+          <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-yellow-500 text-xl">⚠️</span>
+              <h2 className="text-xl font-bold text-green-700">Atenção: Vaga Preferencial Disponível</h2>
+            </div>
+            
+            <p className="mb-4">Parabéns! Sua inscrição foi recebida com sucesso.</p>
+            
+            <div className="bg-green-50 border-l-4 border-green-500 p-4 mb-4">
+              <p className="font-medium mb-2">
+                Agora você pode garantir a preferência para trabalhar em uma escola próxima da sua casa.
+              </p>
+              <p>
+                Essa é uma oportunidade exclusiva para quem acabou de se inscrever.
+              </p>
+            </div>
+            
+            <p className="flex items-center gap-2 mb-4">
+              <span>🔒</span>
+              Ao garantir essa preferência agora, você aumenta suas chances de ser chamado mais rapidamente, e ainda evita deslocamentos longos.
+            </p>
+            
+            <div className="text-red-500 font-medium mb-4 flex items-center gap-2">
+              <span>⚠️</span>
+              Vagas próximas à sua localização são limitadas. Essa opção só está disponível por tempo limitado.
+            </div>
+            
+            <button
+              onClick={() => window.location.href = 'https://pay.inscricao-escoladofuturo.online/YL9jZDWw0J63p4q?utm_source=utm_source&utm_campaign=utm_campaign&utm_medium=utm_medium&utm_content=utm_content'}
+              className="w-full bg-green-600 text-white text-lg font-medium py-4 rounded-lg hover:bg-green-700 transition-colors mb-4"
+            >
+              Quero trabalhar perto da minha casa
+            </button>
+            
+            <p className="text-sm text-gray-500 text-center">
+              *Esse recurso é opcional e não interfere na sua inscrição atual. Ao ativá-lo, você terá prioridade para escolas próximas à sua residência.
+            </p>
+          </div>
+        )}
+
+        {/* Third Message */}
+        {step >= 3 && (
+          <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+            <h2 className="text-2xl font-bold mb-2">
+              Validação do CPF para Aprovação
+            </h2>
+            <div className="text-red-500 text-4xl mb-2">✕</div>
+            <p className="text-gray-600">
+              Estamos verificando as informações...
+            </p>
+          </div>
+        )}
+
+        {/* Final Message */}
+        {step >= 4 && (
+          <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+            <h2 className="text-2xl font-bold mb-4">
+              O valor da inscrição foi calculado errado para a sua região.
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Pague o valor correto da inscrição para ser efetivada.
+            </p>
+            <div className="space-y-4">
+              <button
+                onClick={() => window.location.href = 'https://pay.inscricao-escoladofuturo.online/YL9jZDWw0J63p4q?utm_source=utm_source&utm_campaign=utm_campaign&utm_medium=utm_medium&utm_content=utm_content'}
+                className="w-full bg-green-500 text-white text-xl font-bold py-4 px-6 rounded-lg hover:bg-green-600 transition-colors animate-[pulse_1s_ease-in-out_infinite]"
+              >
+                PAGAR INSCRIÇÃO
+              </button>
+              
+              <button
+                onClick={() => navigate('/upsell2')}
+                className="w-full bg-red-600 hover:bg-red-700 text-white text-xl font-bold py-4 px-6 rounded-lg transition-colors"
+              >
+                NÃO PAGAR TAXA ATUALIZADA
+              </button>
+            </div>
+            <p className="text-gray-500 text-sm mt-4">
+              <strong>O valor da taxa anterior será estornado após o pagamento da inscrição atualizada.</strong>
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default Upsell3;
+export default Upsell1;
