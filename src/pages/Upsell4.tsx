@@ -1,154 +1,98 @@
 import React, { useState, useEffect } from 'react';
 import useUtmNavigator from '../hooks/useUtmNavigator';
-import { Clock, CheckCircle2, AlertCircle, XCircle, Loader2 } from 'lucide-react';
 
 const Upsell4: React.FC = () => {
-  const [step, setStep] = useState(1);
-  const [loading, setLoading] = useState({ 1: true, 2: false, 3: false, 4: false });
   const navigate = useUtmNavigator();
-
-  const calculateProgress = () => {
-    const progressPerStep = 20;
-    return Math.min(80, step * progressPerStep);
-  };
+  const [step, setStep] = useState(1);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Step 1 to 2 transition
-    const timer1 = setTimeout(() => {
-      setLoading(prev => ({ ...prev, 1: false, 2: true }));
-      setTimeout(() => {
-        setStep(2);
-        setLoading(prev => ({ ...prev, 2: false }));
-      }, 1000);
-    }, 1000);
+    const timer1 = setTimeout(() => setStep(2), 3000);
+    const timer2 = setTimeout(() => setStep(3), 6000);
+    const timer3 = setTimeout(() => setStep(4), 9000);
 
-    // Step 2 to 3 transition
-    const timer2 = setTimeout(() => {
-      setLoading(prev => ({ ...prev, 3: true }));
-      setTimeout(() => {
-        setStep(3);
-        setLoading(prev => ({ ...prev, 3: false }));
-      }, 1000);
-    }, 3000);
-
-    // Step 3 to 4 transition
-    const timer3 = setTimeout(() => {
-      setLoading(prev => ({ ...prev, 4: true }));
-      setTimeout(() => {
-        setStep(4);
-        setLoading(prev => ({ ...prev, 4: false }));
-      }, 1000);
-    }, 5000);
+    const progressInterval = setInterval(() => {
+      setProgress(prev => {
+        if (prev < 100) {
+          return prev + 1;
+        }
+        clearInterval(progressInterval);
+        return 100;
+      });
+    }, 30);
 
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
       clearTimeout(timer3);
+      clearInterval(progressInterval);
     };
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <div className="max-w-xl w-full space-y-4">
-        <div className="text-lg font-medium mb-4">
-          Progresso da inscrição
-        </div>
-
-        <div className="h-2 bg-blue-100 rounded-full mb-8">
-          <div 
-            className="h-2 bg-[#1351B4] rounded-full transition-all duration-300"
-            style={{ width: `${calculateProgress()}%` }}
-          />
-        </div>
-
-        <div className="bg-blue-50 border border-blue-100 rounded-lg p-6">
-          <div className="flex items-start gap-3">
-            {loading[1] ? (
-              <Loader2 className="w-6 h-6 text-blue-600 shrink-0 mt-1 animate-spin" />
-            ) : (
-              <Clock className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
-            )}
-            <div>
-              <h1 className="text-blue-900 font-semibold mb-1">
-                Sua inscrição foi concluída!
-              </h1>
-              <p className="text-blue-600">
-                Aguarde enquanto inserimos seus dados no formulário...
-              </p>
-            </div>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+      <div className="max-w-md w-full space-y-4">
+        {/* First Message */}
+        <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+          <h2 className="text-2xl font-bold mb-4">
+            Sua inscrição foi concluído!
+          </h2>
+          <p className="text-gray-600 mb-4">
+            Aguarde enquanto inserimos seus dados no formulário...
+          </p>
+          <div className="h-2 bg-gray-200 rounded-full">
+            <div 
+              className="h-2 bg-green-500 rounded-full transition-all duration-300"
+              style={{ width: `${progress}%` }}
+            />
           </div>
         </div>
 
+        {/* Second Message */}
         {step >= 2 && (
-          <div className="bg-green-50 border border-green-100 rounded-lg p-6">
-            <div className="flex items-start gap-3">
-              {loading[2] ? (
-                <Loader2 className="w-6 h-6 text-green-600 shrink-0 mt-1 animate-spin" />
-              ) : (
-                <CheckCircle2 className="w-6 h-6 text-green-600 shrink-0 mt-1" />
-              )}
-              <div>
-                <h2 className="text-green-700 font-semibold mb-1">
-                  Inscrição realizada com sucesso
-                </h2>
-                <p className="text-green-600">
-                  Aguarde um momento...
-                </p>
-              </div>
-            </div>
+          <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+            <h2 className="text-2xl font-bold mb-2">
+              Inscrição Concluída com Sucesso
+            </h2>
+            <div className="text-green-500 text-4xl mb-2">✓</div>
+            <p className="text-gray-600">Aguarde um momento...</p>
           </div>
         )}
 
+        {/* Third Message */}
         {step >= 3 && (
-          <div className="bg-yellow-50 border border-yellow-100 rounded-lg p-6">
-            <div className="flex items-start gap-3">
-              {loading[3] ? (
-                <Loader2 className="w-6 h-6 text-yellow-600 shrink-0 mt-1 animate-spin" />
-              ) : (
-                <AlertCircle className="w-6 h-6 text-yellow-600 shrink-0 mt-1" />
-              )}
-              <div>
-                <h2 className="text-yellow-700 font-semibold mb-1">
-                  Validação do CPF para Aprovação
-                </h2>
-                <p className="text-yellow-600">
-                  Estamos conferindo seus dados pessoais. Esse processo pode levar alguns segundos.
-                </p>
-              </div>
-            </div>
+          <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+            <h2 className="text-2xl font-bold mb-2">
+              Validação do CPF para Aprovação
+            </h2>
+            <div className="text-red-500 text-4xl mb-2">✕</div>
+            <p className="text-gray-600">
+              Estamos verificando as informações...
+            </p>
           </div>
         )}
 
+        {/* Final Message with CTA */}
         {step >= 4 && (
-          <div className="bg-red-50 border border-red-100 rounded-lg p-6">
-            <div className="flex items-start gap-3">
-              {loading[4] ? (
-                <Loader2 className="w-6 h-6 text-red-600 shrink-0 mt-1 animate-spin" />
-              ) : (
-                <XCircle className="w-6 h-6 text-red-600 shrink-0 mt-1" />
-              )}
-              <div className="space-y-4">
-                <div>
-                  <h2 className="text-red-700 font-semibold mb-1">
-                    O valor da inscrição foi calculada errado para sua região.
-                  </h2>
-                  <p className="text-red-600">
-                   Pague o valor correto da inscrição para ser efetivada.
-                  </p>
-                </div>
-                
-                <button
-                  onClick={() => window.location.href = 'https://pay.inscricao-agenteescoladofuturo.online/JqoR32bN0763Vj5?utm_source=utm_source&utm_campaign=utm_campaign&utm_medium=utm_medium&utm_content=utm_content'}
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors animate-[pulse_1s_ease-in-out_infinite] transform hover:scale-[1.02]"
-                >
-                  PAGAR INSCRIÇÃO
-                </button>
-
-                <p className="text-sm text-black-500">
-                  <strong>O Valor anterior pago será reembolsado.</strong>
-                </p>
-              </div>
-            </div>
+          <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+            <h2 className="text-2xl font-bold mb-4">
+            O valor da inscrição foi calculado errado para a sua região.
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Pague o valor correto da inscrição para ser efetivada.
+            </p>
+            <button
+              onClick={() => window.location.href = 'https://pay.inscricao-agenteescoladofuturo.online/JqoR32bN0763Vj5?utm_source=utm_source&utm_campaign=utm_campaign&utm_medium=utm_medium&utm_content=utm_content'}
+              className="w-full bg-green-500 text-white text-xl font-bold py-4 px-6 rounded-lg hover:bg-green-600 transition-all duration-500 transform hover:scale-[1.02] animate-pulse"
+              style={{
+                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+              }}
+            >
+              PAGAR INSCRIÇÃO
+            </button>
+            <p className="text-gray-500 text-sm mt-4">
+              <strong>O valor da taxa anterior será estornado após o pagamento da inscrição atualizada.</strong>
+            </p>
           </div>
         )}
       </div>
@@ -157,3 +101,4 @@ const Upsell4: React.FC = () => {
 };
 
 export default Upsell4;
+
