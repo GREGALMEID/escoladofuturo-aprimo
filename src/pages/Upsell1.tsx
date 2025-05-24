@@ -52,8 +52,6 @@ const Upsell1: React.FC = () => {
               <h2 className="text-xl font-bold text-green-700">Atenção: Vaga Preferencial Disponível</h2>
             </div>
             
-            <p className="mb-4">Parabéns! Sua inscrição foi recebida com sucesso.</p>
-            
             <div className="bg-green-50 border-l-4 border-green-500 p-4 mb-4">
               <p className="font-medium mb-2">
                 Agora você pode garantir a preferência para trabalhar em uma escola próxima da sua casa.
