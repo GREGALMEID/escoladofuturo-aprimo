@@ -70,7 +70,7 @@ const Upsell1: React.FC = () => {
             
             <div className="text-red-500 font-medium mb-4 flex items-center gap-2">
               <span>⚠️</span>
-              Vagas próximas à sua localização são limitadas. Essa opção só está disponível por tempo limitado.
+             Essa opção só está disponível por uma vez.
             </div>
             
             <button
