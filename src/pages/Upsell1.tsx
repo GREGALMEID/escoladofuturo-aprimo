@@ -70,7 +70,8 @@ const Upsell1: React.FC = () => {
             
             <div className="text-red-500 font-medium mb-4 flex items-center gap-2">
               <span>⚠️</span>
-             Essa opção só está disponível uma vez.
+             Essa opção só está disponível 
+               <br />uma vez.
             </div>
             
             <button
