@@ -86,7 +86,7 @@ const Upsell1: React.FC = () => {
             </p>
              <button
               onClick={() => window.location.href = '/upsell2'}
-              className="w-full bg-green-600 text-white text-sm font-medium py-4 rounded-lg hover:bg-green-700 transition-colors mb-4"
+              className="w-full bg-red-600 text-white text-sm font-medium py-4 rounded-lg hover:bg-green-700 transition-colors mb-4"
             >
               vou trabalhar longe de casa
             </button>
